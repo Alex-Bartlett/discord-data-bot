@@ -1,0 +1,51 @@
+{
+	// Place your discordBot workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Blank command": {
+		"scope": "javascript,typescript",
+		"prefix": "command",
+		"body": [
+			"const { SlashCommandBuilder } = require('discord.js');",
+			"const dbConnector = require('../database-connector.js');",
+			"const utils = require('../discordDataUtilities');",
+			"",
+			"module.exports = {",
+				"data: new SlashCommandBuilder()",
+					".setName('${1:commandName}')",
+					".setDescription('${2:commandDescription}')",
+					".addBooleanOption(option =>",
+						"option.setName('ephemeral')",
+							".setDescription('Whether the reply shows only for you, or for the whole server. Default: true')),",
+				"async execute(interaction) {",
+					"// Arguments",
+					"const ephemeral = interaction.options.getBoolean('ephemeral') ?? true;",
+					"// Audit",
+					"dbConnector.PostAudit({ command: this.data.name, arguments: `ephemeral = ${ephemeral}`, userId: interaction.member.user.id });",
+					"// Code",
+					"",
+					"${0}",
+					"",
+					"let content;",
+					"content = '';",
+					"await interaction.reply({ content: content, ephemeral: ephemeral });",
+				"},",
+			"};"
+		],
+		"description": "Blank discordBot command"
+	}
+}
