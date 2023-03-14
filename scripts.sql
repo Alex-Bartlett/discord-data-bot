@@ -176,3 +176,6 @@ GROUP BY
 	members.id
 ORDER BY
 	streak DESC;
+
+
+SELECT DATE_FORMAT(auditLog.date, '%Y-%m-%d %H:%i:%s') as 'date', members.name as 'name', auditLog.command as 'command', auditLog.arguments as 'args' FROM auditLog LEFT JOIN members ON auditLog.userId = members.id ORDER BY auditLog.date DESC LIMIT 40;

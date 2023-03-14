@@ -171,7 +171,7 @@ async function PostAudit(queryData) {
 }
 
 async function PrintAudit() {
-	const query = `SELECT DATE_FORMAT(auditLog.date, '%Y-%m-%d %H:%i:%s') as 'date', members.name as 'name', auditLog.command as 'command', auditLog.arguments as 'args' FROM ${dbName}.auditLog LEFT JOIN ${dbName}.members ON auditLog.userId = members.id ORDER BY auditLog.date DESC;`;
+	const query = `SELECT DATE_FORMAT(auditLog.date, '%Y-%m-%d %H:%i:%s') as 'date', members.name as 'name', auditLog.command as 'command', auditLog.arguments as 'args' FROM ${dbName}.auditLog LEFT JOIN ${dbName}.members ON auditLog.userId = members.id ORDER BY auditLog.date DESC LIMIT 40;`;
 	try {
 		return await RunQuery(query);
 	}
