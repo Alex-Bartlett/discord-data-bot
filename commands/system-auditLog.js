@@ -15,6 +15,7 @@ module.exports = {
 		let header = ['Date', 'User', 'Command', 'Args'];
 		let rows = [];
 		await dbConnector.PrintAudit().then(results => {
+			results = results.reverse();
 			results.forEach(row => rows.push([row.date, row.name, row.command, row.args]));
 			let output = utils.SqlDataToTable(header, rows);
 			output.forEach(row => console.log(row));
