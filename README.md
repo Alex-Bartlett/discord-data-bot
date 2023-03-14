@@ -15,17 +15,27 @@ If you need to run locally, create a config.json in the root directory in the fo
 
 ### Connections:
 
-id int(11),
-connectionType varchar(50), *either 'connect', 'disconnect', 'changed', or 'unknown'*
-clientId varchar(50),
-channelId varchar(50),
-date datetime
+**id** `int(11)`
+
+**connectionType** `varchar(50)` *either 'connect', 'disconnect', 'changed', or 'unknown'*
+
+**clientId** `varchar(50)`
+
+**channelId** `varchar(50)`
+
+**date** `datetime`
+
 
 ### Members
-id varchar(50)
-name varchar(50)
+
+**id** `varchar(50)`
+
+**name** `varchar(50)`
+
 
 ### Channels
 
-id varchar(50)
-name varchar(50)
+**id** `varchar(50)`
+
+**name** `varchar(50)`
+
