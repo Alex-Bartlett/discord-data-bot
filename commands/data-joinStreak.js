@@ -13,7 +13,7 @@ module.exports = {
 		// Arguments
 		const ephemeral = interaction.options.getBoolean('ephemeral') ?? true;
 		// Audit
-		dbConnector.PostAudit({ command: this.data.name, arguments: `ephemeral = ephemeral`, userId: interaction.member.user.id });
+		dbConnector.PostAudit({ command: this.data.name, arguments: `ephemeral = ${ephemeral}`, userId: interaction.member.user.id });
 		// Code
 
 		await dbConnector.GetJoinDays().then(async function (result) {
