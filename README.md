@@ -12,7 +12,7 @@ If you need to run locally, create a config.json in the root directory in the fo
   ```
 
 ## Database format:
-
+Expects a maria-db database with the below tables. Update the connection information in database-connector.js.
 ### Connections:
 
 **id** `int(11)`
