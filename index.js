@@ -9,7 +9,7 @@ const {
 	ConnectionService,
 	ActivityType,
 } = require('discord.js')
-const { token } = require('./config.json')
+const { discord_secrets } = require('./config.json')
 const { channel } = require('node:diagnostics_channel')
 const dbConnector = require('./database-connector.js')
 
@@ -99,7 +99,7 @@ client.on('voiceStateUpdate', (oldstate, newstate) => {
 })
 
 // Login to Discord with your client's token
-client.login(token)
+client.login(discord_secrets.token)
 
 // dbConnector.GetData()
 //     .then(result => console.log(result));
