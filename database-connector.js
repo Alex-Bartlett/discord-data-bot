@@ -1,8 +1,10 @@
 const mariadb = require('mariadb');
+const { database_secrets } = require('./config.json');
+
 const pool = mariadb.createPool({
-	host: '127.0.0.1',
-	user: 'primary',
-	password: 'admin',
+	host: database_secrets.host,
+	user: database_secrets.user,
+	password: database_secrets.password,
 	connectionLimit: 5
 });
 const dbName = "discordData_db"
