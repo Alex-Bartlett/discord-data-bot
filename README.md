@@ -1,13 +1,22 @@
 # discord-data-bot
 
-If you need to run locally, create a config.json in the root directory in the following format:
+You will need to create a config.json in the root folder with the following format:
 
 ```
 {
-    "token": "bot-token",
-    "clientId": "bot-clientid",
-    "guildId": "guildid",
-    "testGuildId": "optional-test-guildid",
+	"discord_secrets": 
+	{
+		"token": "bot-token",
+		"clientId": "bot-clientid",
+		"guildId": "guildid",
+		"testGuildId": "optional-test-guildid",
+	},
+	"database_secrets":
+	{
+		"host": "host-address",
+		"user": "username",
+		"password": "password"
+	}
 }
   ```
 
